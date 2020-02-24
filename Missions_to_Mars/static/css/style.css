@@ -1,0 +1,16 @@
+h1, h3, h5, h6, a, p, th, td {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+h1, h3, h5, h6, a, p{
+    color: #4b515d;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+h1, h3, h5, h6{
+    font-weight: bold;
+}
+
+th, td {
+    font-size: 10pt;
+}

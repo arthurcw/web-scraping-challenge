@@ -1,3 +1,6 @@
+.gitignore
 .ipynb_checkpoints/
+__pycache__/
+.vscode
 chromedriver.exe
 notes.dat

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Latest Mars News</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+</head>
+
+<body>
+  <div class="container-fluid">
+
+    <div class="jumbotron text-center">
+      <h1>Mission to Mars</h1>
+      <p>News. Image. Weather. Trivia</p>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrap New Data!</a></p>
+    </div>
+
+    <!-- Mars News -->
+    <div>
+      <h3>Latest Mars News</h3>
+      <h6>{{mars.news_title}}</h6>
+      <p style="font-size: 10pt;">{{mars.news_p}}</p>
+    </div>
+
+    <!--Left: Featured Mars Image, Right: Weather and Facts-->
+    <div class="row mt-2">
+      <!--Featured Mars Image-->
+      <div class="col-md-7 col-sm-12">
+        <h3>Featured Image</h3>
+        <figure>
+          <img src="{{mars.featured_image_url}}" alt="Featured Image" style="width: 100%; height: 100%;">
+        </figure>       
+      </div>
+      <div class="col-md-5 col-sm-12">
+        <!--Weather-->
+        <div class="border border-dark mb-3 p-2">
+          <h5>Current Weather on Mars</h5>
+          <a style="font-size: 10pt;">{{mars.mars_weather}}</a>
+        </div>
+        <!--Mars Facts-->
+        <div>
+          <h5>Mars Facts</h5>
+          {{mars.facts_table|safe}}
+          
+        </div>
+      </div>
+    </div>
+
+    <!--Mars Hemispheres-->
+    <div class="row mt-2 mb-n3">
+      <div class="col-12 text-center"><h3>Mars Hemispheres</h3></div>
+    </div>
+    <hr>
+    <div class="row">
+      {% for img in mars.hemisphere_image_urls %}
+      <div class="col-md-6 col-sm-12 mb-2">
+        <div class="card">
+          <img src="{{img['image_url']}}" class="card-img-top" alt="{{img['title']}}">
+          <div class="card-body">
+            <p class="card-text">{{img['title']}}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</body>
+
+</html>
+
